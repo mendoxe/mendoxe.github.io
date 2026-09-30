@@ -1,0 +1,24 @@
+name: personal_site
+description: Lukas Simon's personal website and independent app collection.
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ^3.13.0
+
+dependencies:
+  jaspr: ^0.23.5
+  jaspr_router: ^0.9.0
+
+dev_dependencies:
+  build_runner: ^2.15.1
+  build_web_compilers: ^4.8.5
+  jaspr_builder: ^0.23.5
+  jaspr_cli: 0.23.5
+  pdf: ^3.11.3
+  test: ^1.25.15
+  html: ^0.15.6
+  lints: ^5.0.0
+
+jaspr:
+  mode: static

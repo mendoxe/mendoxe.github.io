@@ -1,0 +1,8 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label": "Site: develop", "type": "process", "command": "dart", "args": ["run", "tool/site.dart", "dev"], "problemMatcher": []},
+    {"label": "Site: check", "type": "process", "command": "dart", "args": ["run", "tool/site.dart", "check"], "group": "test", "problemMatcher": []},
+    {"label": "Site: build", "type": "process", "command": "dart", "args": ["run", "tool/site.dart", "build"], "group": "build", "problemMatcher": []}
+  ]
+}
