@@ -6,8 +6,8 @@ class AppScreenshot {
 
 /// Colours of an app's band; text colours must reach 4.5:1 on [ground].
 class AppPalette {
-  const AppPalette({required this.ground, required this.text, required this.muted, required this.accent});
-  final String ground, text, muted, accent;
+  const AppPalette({required this.ground, required this.text, required this.muted});
+  final String ground, text, muted;
 }
 
 class PersonalApp {
@@ -17,29 +17,25 @@ class PersonalApp {
     required this.kind,
     required this.description,
     required this.features,
-    required this.isReleased,
     required this.palette,
     this.screenshots = const [],
     this.landscapeScreenshots = false,
   });
   final String slug, name, kind, description;
   final List<(String, String)> features;
-  final bool isReleased, landscapeScreenshots;
+  final bool landscapeScreenshots;
   final AppPalette palette;
   final List<AppScreenshot> screenshots;
   String get path => 'apps/$slug/';
   String get iconPath => 'images/apps/$slug/icon.jpg';
-  String get status => isReleased ? 'Released' : 'In development';
 }
 
-/// Toolbox and Code breaker release status confirmed by Lukas on 30 September 2026. Emberline, Quizness and
-/// Travelo are unreleased according to their repositories. Features are taken from each app's code and docs.
+/// Descriptions and features are taken from each app's code and docs.
 const personalApps = [
   PersonalApp(
     slug: 'toolbox',
     name: 'Toolbox',
     kind: 'Everyday utilities',
-    isReleased: true,
     description:
         'Converters, calculators, sensor tools and quick ways to decide, collected in one app. '
         'Pin the tools you use most and open them in a tap.',
@@ -49,7 +45,7 @@ const personalApps = [
       ('Text and codes', 'Password generator, QR scanner and generator, encoders, word count and a Caesar cipher.'),
       ('Decide and keep score', 'Coin flip, dice, random pick, wheel of fortune, team groups and a scoreboard.'),
     ],
-    palette: AppPalette(ground: '#0b5fc4', text: '#ffffff', muted: '#d6e7ff', accent: '#ffffff'),
+    palette: AppPalette(ground: '#0b5fc4', text: '#ffffff', muted: '#d6e7ff'),
     screenshots: [
       AppScreenshot(
         'images/apps/toolbox/all-tools.jpg',
@@ -82,7 +78,6 @@ const personalApps = [
     slug: 'code-breaker',
     name: 'Code breaker',
     kind: 'Logic game',
-    isReleased: true,
     description:
         'Find the hidden code by deduction. Every guess tells you which symbols are in the right place, '
         'which are in the code but elsewhere, and which are not in it at all.',
@@ -92,13 +87,12 @@ const personalApps = [
       ('Repeated symbols', 'Allow a symbol to appear more than once for a harder code.'),
       ('Statistics', 'See how your past games went.'),
     ],
-    palette: AppPalette(ground: '#221c48', text: '#f2f0fb', muted: '#bab3dc', accent: '#2dd4ef'),
+    palette: AppPalette(ground: '#221c48', text: '#f2f0fb', muted: '#bab3dc'),
   ),
   PersonalApp(
     slug: 'emberline',
     name: 'Emberline',
     kind: 'Tower defense game',
-    isReleased: false,
     description:
         'Hold back the swarm across five worlds and twenty maps. Build and upgrade towers, '
         'command soldiers, and choose a specialization for every tower. Plays offline, without an account.',
@@ -111,7 +105,7 @@ const personalApps = [
       ('Twelve enemy species', 'Each with its own traits and counters, recorded in the enemy journal.'),
       ('Endless mode', 'Keep going after the campaign until your core falls.'),
     ],
-    palette: AppPalette(ground: '#2a1d16', text: '#f7efe2', muted: '#cdbca6', accent: '#f2aa3c'),
+    palette: AppPalette(ground: '#2a1d16', text: '#f7efe2', muted: '#cdbca6'),
     landscapeScreenshots: true,
     screenshots: [
       AppScreenshot(
@@ -150,7 +144,6 @@ const personalApps = [
     slug: 'quizness',
     name: 'Quizness',
     kind: 'Study and test',
-    isReleased: false,
     description:
         'Study question sets and take tests, offline. Bring your own sets or write them in the app, '
         'and keep track of what you know.',
@@ -160,13 +153,12 @@ const personalApps = [
       ('Your own sets', 'Import from CSV, text or JSON, write questions in the editor, and export to share.'),
       ('More than multiple choice', 'Ordering and matching questions, with pictures, animations and video.'),
     ],
-    palette: AppPalette(ground: '#2654dc', text: '#ffffff', muted: '#dce5ff', accent: '#ffffff'),
+    palette: AppPalette(ground: '#2654dc', text: '#ffffff', muted: '#dce5ff'),
   ),
   PersonalApp(
     slug: 'travelo',
     name: 'Travelo',
     kind: 'Travel map',
-    isReleased: false,
     description:
         'Mark the countries and regions you have visited on a world map or globe, '
         'see how much of the world you have covered, and plan trips with several stops.',
@@ -176,6 +168,6 @@ const personalApps = [
       ('Regions', 'Track the regions you have visited within a country.'),
       ('Trips', 'Plan routes with dates, stops, transport, accommodation and notes.'),
     ],
-    palette: AppPalette(ground: '#272d70', text: '#ffffff', muted: '#c8ccf2', accent: '#7fd68c'),
+    palette: AppPalette(ground: '#272d70', text: '#ffffff', muted: '#c8ccf2'),
   ),
 ];

@@ -5,7 +5,6 @@ class Profile {
   static const introduction =
       'I build apps for mobile, desktop, and the web with Flutter, Dart and Jaspr, using a shared codebase, scalable architecture, and an interface that fits the platform.';
   static const approach =
-      'I’m a software developer focused on multiplatform apps. Flutter and Dart come first. '
       'I care about architecture that stays maintainable and interfaces that are fast, '
       'predictable, and comfortable to use.';
   static const background =

@@ -29,11 +29,13 @@ Jaspr discovers `@css` rules at build time. Each component keeps its styles in a
 
 The site is dark only. The ground is a deep ink blue (`#0f1526`) with light foreground text; colour comes only from the apps. Schibsted Grotesk (variable, 400–900) is the single typeface: heavy and tightly tracked for display, regular for body text. There are no eyebrow labels, icon fonts, or decorative numbering.
 
-The home hero sets the name across two lines with the five real app icons following "Simon" like extra letters; below 720px they wrap under the name. The icons link to their bands and pop in once on load, the site's only automatic motion; reduced-motion preferences disable it.
+The hero, every app band, About and Services each fill at least the viewport below the sticky header (`screenHeight` in `theme.dart`), so the next section never peeks in; longer content grows the section. On the home page the Apps heading is visually hidden so the first band follows the hero directly.
 
-Each app has a band in its own palette (`AppPalette`; text colours meet 4.5:1 on the ground). Bands alternate copy and visual sides on desktop and stack below 860px. The visual is two portrait screenshots rising from the band's bottom edge, one landscape screenshot, or, for apps without screenshots, the large icon (hidden on phones, where the small icon above the name remains). The same band is the hero of each app page (`level: 1`), followed by features, a screenshot gallery when screenshots exist, and links to the legal routes. The footer on every page is the contact block with the email address set large.
+The home hero sets the name large across two lines, followed by the introduction and the GitHub and LinkedIn links. The site has no automatic motion; reduced-motion preferences also disable the small hover transitions.
 
-The sticky header holds the name (home link), Apps, About, Services and an Email me button. Below 720px a native `details` menu holds the links. Section links are base-aware home anchors that work from every route; standalone About, Services and Apps routes mark their nav link with `aria-current`. Raw click listeners preserve anchor defaults, since Jaspr's typed `onClick` prevents them.
+Each app has a band in its own palette (`AppPalette`; text colours meet 4.5:1 on the ground). Bands alternate copy and visual sides on desktop and stack below 860px. The visual is two portrait screenshots rising from the band's bottom edge, one landscape screenshot, or, for apps without screenshots, the large icon in place of the small one above the name. Bands show no release status. The same band is the hero of each app page (`level: 1`), followed by features, a screenshot gallery when screenshots exist, and links to the legal routes. The footer on every page is the contact block with the email address.
+
+The sticky header holds the name (home link), Apps, About, Services and a Contact me button. Below 720px a native `details` menu holds the links. Section links are base-aware home anchors that work from every route; standalone About, Services and Apps routes mark their nav link with `aria-current`. Raw click listeners preserve anchor defaults, since Jaspr's typed `onClick` prevents them.
 
 ## Routing and app ownership
 
@@ -55,7 +57,7 @@ Each app's index is its landing page. All pages are generated from explicit rout
 
 `Profile` feeds the website and PDF with shared employment, education, and skills. The `pdf` package produces a one-page A4 document with print-friendly Helvetica. Builds regenerate the PDF before Jaspr copies assets.
 
-App records hold release status: Toolbox and Code breaker are released (confirmed by Lukas); Emberline, Quizness and Travelo are unreleased according to their repositories. Features are taken from each app's code and docs. Legal routes are labeled placeholders, not invented policies. [TODO.md](../TODO.md) tracks app information and legal tasks.
+App descriptions and features are taken from each app's code and docs. Legal routes are labeled placeholders, not invented policies. [TODO.md](../TODO.md) tracks app information and legal tasks.
 
 ## Growth
 

@@ -3,6 +3,7 @@ import 'package:jaspr/jaspr.dart';
 
 import '../content/apps.dart';
 import '../site_config.dart';
+import '../theme.dart';
 
 /// The app's real icon. Leave [alt] empty when the app's name is already next to it.
 class AppIcon extends StatelessComponent {
@@ -36,7 +37,6 @@ class AppBand extends StatelessComponent {
           '--ground': palette.ground,
           '--band-text': palette.text,
           '--band-muted': palette.muted,
-          '--accent': palette.accent,
         },
       ),
       [
@@ -51,10 +51,7 @@ class AppBand extends StatelessComponent {
             },
             p(classes: 'band-kind', [.text(app.kind)]),
             p(classes: 'band-description', [.text(app.description)]),
-            div(classes: 'band-footer', [
-              p(classes: 'band-status ${app.isReleased ? 'is-released' : ''}', [.text(app.status)]),
-              if (level > 1) a(href: siteUrl(app.path), classes: 'band-link', [.text('More about ${app.name}')]),
-            ]),
+            if (level > 1) a(href: siteUrl(app.path), classes: 'band-link', [.text('More about ${app.name}')]),
           ]),
           div(
             classes: 'band-visual',
@@ -93,9 +90,9 @@ class AppBand extends StatelessComponent {
     ),
     css('.band-inner').styles(
       display: .grid,
-      minHeight: 520.px,
-      gridTemplate: GridTemplate(columns: GridTracks([GridTrack(TrackSize.fr(5)), GridTrack(TrackSize.fr(6))])),
+      minHeight: .expression(screenHeight),
       alignItems: .stretch,
+      gridTemplate: GridTemplate(columns: GridTracks([GridTrack(TrackSize.fr(5)), GridTrack(TrackSize.fr(6))])),
       gap: .all(.expression('clamp(32px, 6vw, 96px)')),
     ),
     css('.app-band:nth-of-type(even) .band-copy').styles(order: 2),
@@ -120,7 +117,7 @@ class AppBand extends StatelessComponent {
       fontSize: .expression('clamp(44px, 6vw, 72px)'),
       fontWeight: .w800,
       lineHeight: 1.em,
-      raw: {'letter-spacing': '-0.035em'},
+      raw: {'letter-spacing': displayTracking},
     ),
     css('.band-kind').styles(
       margin: .only(top: 8.px),
@@ -131,29 +128,11 @@ class AppBand extends StatelessComponent {
       maxWidth: 30.em,
       margin: .only(top: 24.px),
     ),
-    css('.band-footer').styles(
-      display: .flex,
+    css('.band-link').styles(
       margin: .only(top: 32.px),
-      flexWrap: .wrap,
-      alignItems: .center,
-      gap: Gap(row: 12.px, column: 28.px),
-    ),
-    css('.band-status').styles(
-      display: .inlineFlex,
-      alignItems: .center,
-      gap: .all(10.px),
       fontSize: 16.px,
       fontWeight: .w600,
     ),
-    css('.band-status::before').styles(
-      content: '""',
-      width: 10.px,
-      height: 10.px,
-      border: .all(width: 2.px, color: .variable('--accent')),
-      radius: .circular(50.percent),
-    ),
-    css('.band-status.is-released::before').styles(backgroundColor: .variable('--accent')),
-    css('.band-link').styles(fontSize: 16.px, fontWeight: .w600),
     css('.band-visual').styles(display: .flex, minWidth: .zero, justifyContent: .center, gap: .all(24.px)),
     css('.icon-only .band-visual').styles(alignItems: .center),
     css('.icon-only .band-copy .app-icon').styles(display: .none),
@@ -172,15 +151,17 @@ class AppBand extends StatelessComponent {
     css('.landscape .band-shot').styles(width: 100.percent, raw: {'aspect-ratio': '16 / 9', 'align-self': 'end'}),
     css('.landscape .band-visual').styles(padding: .only(top: 64.px)),
     css.media(MediaQuery.screen(maxWidth: 860.px), [
-      css('.band-inner').styles(
-        minHeight: .auto,
-        gridTemplate: GridTemplate(columns: GridTracks([GridTrack(TrackSize.fr(1))])),
-        gap: .all(.zero),
-      ),
+      css('.band-inner').styles(display: .flex, flexDirection: .column, gap: .all(.zero)),
       css('.app-band:nth-of-type(even) .band-copy').styles(order: 0),
-      css('.band-copy').styles(padding: .symmetric(vertical: 56.px)),
-      css('.icon-only .band-visual').styles(display: .none),
-      css('.icon-only .band-copy .app-icon').styles(display: .block),
+      css('.band-copy').styles(
+        padding: .symmetric(vertical: 56.px),
+        flex: .grow(1),
+      ),
+      css('.icon-only .band-visual').styles(
+        padding: .only(bottom: 56.px),
+        justifyContent: .start,
+      ),
+      css('.icon-only .band-visual .app-icon').styles(width: 140.px),
       css('.landscape .band-visual').styles(padding: .zero),
       css('.portrait .band-shot').styles(height: 320.px),
       css('.portrait .band-shot:last-child').styles(height: 280.px),

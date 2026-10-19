@@ -14,9 +14,9 @@ The lakeside portrait (`web/images/profile-image.jpg`) is the small photo in Abo
 
 Keep the public copy direct. Describe apps by their purpose; avoid diminutives such as “small apps,” motivational slogans, eyebrow labels, numbered section labels, and decorative arrows. Do not claim availability, pricing or store presence that has not been confirmed.
 
-The apps, in order: Toolbox, Code breaker, Emberline (repository `flutter/flutter_td`), Quizness, Travelo (repository `flutter/travel_tracker`). “Email me” in the header and hero, and the footer address, open an email draft to the confirmed address `42lukas.simon@gmail.com`, shared with the PDF.
+The apps, in order: Toolbox, Code breaker, Emberline (repository `flutter/flutter_td`), Quizness, Travelo (repository `flutter/travel_tracker`). “Contact me” in the header and the footer address open an email draft to the confirmed address `42lukas.simon@gmail.com`, shared with the PDF.
 
-Header navigation contains Apps, About and Services, plus Email me; the name links home. On phones the links sit in a native disclosure menu. The sections share the home page and are linked by anchors from every route. The CV download lives in About; the standalone CV route remains at `/cv/`. The hero introduction and footer sentence live in `PortfolioCopy`.
+Header navigation contains Apps, About and Services, plus Contact me; the name links home. On phones the links sit in a native disclosure menu. The sections share the home page and are linked by anchors from every route. The CV download lives in About; the standalone CV route remains at `/cv/`. The hero introduction and footer sentence live in `PortfolioCopy`.
 
 ## Needed before a finished personal launch
 
@@ -29,9 +29,9 @@ The website and generated PDF share structured experience and education in `lib/
 
 The ordered launch checklist is [TODO.md](../TODO.md). Follow up with focused questions when returning to those tasks.
 
-## App status
+## Release status
 
-Lukas confirmed on 30 September 2026 that Toolbox and Code breaker are released. Emberline, Quizness and Travelo are unreleased: their repositories show open launch checklists and nothing uploaded to a store (checked 19 October 2026). `PersonalApp.isReleased` drives the “Released” or “In development” status. Platforms, store links and support details still need confirmation per app. App descriptions and features come from each app's code and docs.
+Lukas confirmed on 30 September 2026 that Toolbox and Code breaker are released. Emberline, Quizness and Travelo are unreleased: their repositories show open launch checklists and nothing uploaded to a store (checked 19 October 2026). The site does not show release status; it matters for the legal and store tasks. Platforms, store links and support details still need confirmation per app. App descriptions and features come from each app's code and docs.
 
 ## App icons, colours and screenshots
 

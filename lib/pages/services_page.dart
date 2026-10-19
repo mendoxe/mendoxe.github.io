@@ -36,7 +36,7 @@ class ServicesSection extends StatelessComponent {
 
   @css
   static List<StyleRule> get styles => [
-    css('.services').styles(backgroundColor: wash),
+    css('.services').styles(minHeight: .expression(screenHeight), backgroundColor: wash),
     css('.service').styles(
       display: .grid,
       padding: .symmetric(vertical: 32.px),

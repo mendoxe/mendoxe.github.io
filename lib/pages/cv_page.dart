@@ -43,7 +43,7 @@ class CvPage extends StatelessComponent {
           h3([
             a(href: siteUrl(app.path), [.text(app.name)]),
           ]),
-          p(classes: 'muted', [.text('${app.kind}, ${app.status.toLowerCase()}')]),
+          p(classes: 'muted', [.text(app.kind)]),
           p([.text(app.description)]),
         ]),
     ]),
@@ -54,8 +54,8 @@ class CvPage extends StatelessComponent {
     css('.cv').styles(padding: .only(bottom: 96.px)),
     css('.cv-section').styles(
       display: .grid,
-      margin: .only(top: 56.px),
       padding: .only(top: 24.px),
+      margin: .only(top: 56.px),
       border: .only(
         top: BorderSide(width: 1.px, color: hairline, style: .solid),
       ),

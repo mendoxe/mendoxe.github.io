@@ -29,7 +29,7 @@ class Header extends StatefulComponent {
     ),
     css('.site-header').styles(
       display: .flex,
-      minHeight: .variable('--header-height'),
+      minHeight: .expression('calc(var(--header-height) - 1px)'),
       justifyContent: .spaceBetween,
       alignItems: .center,
       gap: .all(24.px),
@@ -170,7 +170,7 @@ class _HeaderState extends State<Header> {
           events: {'click': (event) => closeMenu()},
           [.text(title)],
         ),
-      a(href: 'mailto:${Profile.email}', classes: 'nav-email', [.text('Email me')]),
+      a(href: 'mailto:${Profile.email}', classes: 'nav-email', [.text('Contact me')]),
     ],
   );
 

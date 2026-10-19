@@ -4,7 +4,7 @@
 
 A personal website and a home for independent apps. Written in Dart with Jaspr, rendered ahead of time, and ready for GitHub Pages.
 
-Dark only: a deep ink-blue ground, locally hosted Schibsted Grotesk, and colour that comes only from the apps. The hero sets the name large with the five real app icons beside it; each app then gets a full-width band in its own colours with its real icon and screenshots.
+Dark only: a deep ink-blue ground, locally hosted Schibsted Grotesk, and colour that comes only from the apps. The hero sets the name large; each app then gets a full-width band in its own colours with its real icon and screenshots.
 
 ![Personal website preview](docs/images/home.png)
 

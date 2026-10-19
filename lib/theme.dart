@@ -9,6 +9,9 @@ const deep = Color('#090d18');
 
 const displayTracking = '-0.035em';
 
+/// Sections fill the viewport below the sticky header, so the next one never peeks in.
+const screenHeight = 'calc(100svh - var(--header-height))';
+
 /// Shared tokens, type scale and document styles. Component styles live with their components.
 @css
 List<StyleRule> get theme => [
@@ -58,7 +61,7 @@ List<StyleRule> get theme => [
     raw: {'outline-offset': '4px'},
   ),
   css('::selection').styles(color: background, backgroundColor: foreground),
-  css('img').styles(display: .block, maxWidth: 100.percent, height: .auto),
+  css('img').styles(display: .block, height: .auto, maxWidth: 100.percent),
   css('.wrap').styles(
     width: .expression('min(1160px, calc(100% - 96px))'),
     margin: .symmetric(horizontal: .auto),
@@ -92,6 +95,13 @@ List<StyleRule> get theme => [
     backgroundColor: foreground,
   ),
   css('.button:hover').styles(backgroundColor: const Color('#c9d2e8')),
+  css('.visually-hidden').styles(
+    position: .absolute(),
+    width: 1.px,
+    height: 1.px,
+    overflow: .hidden,
+    raw: {'clip-path': 'inset(50%)', 'white-space': 'nowrap'},
+  ),
   css('.skip-link').styles(
     position: .fixed(top: (-100).px, left: 16.px),
     zIndex: const ZIndex(30),

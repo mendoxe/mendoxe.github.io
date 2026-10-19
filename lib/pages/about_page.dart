@@ -51,6 +51,8 @@ class AboutSection extends StatelessComponent {
   static List<StyleRule> get styles => [
     css('.about').styles(
       display: .grid,
+      minHeight: .expression(screenHeight),
+      alignContent: .start,
       gridTemplate: GridTemplate(columns: GridTracks([GridTrack(TrackSize.fr(1)), GridTrack(TrackSize.fr(2))])),
       gap: .all(.expression('clamp(32px, 6vw, 96px)')),
     ),
@@ -76,10 +78,10 @@ class AboutSection extends StatelessComponent {
       border: .only(
         bottom: BorderSide(width: 1.px, color: hairline, style: .solid),
       ),
+      alignItems: .baseline,
       gridTemplate: GridTemplate(
         columns: GridTracks([GridTrack(TrackSize(200.px)), GridTrack(TrackSize.fr(1)), GridTrack(TrackSize.auto)]),
       ),
-      alignItems: .baseline,
       gap: .all(16.px),
     ),
     css('.experience-period').styles(color: muted, fontSize: 16.px, raw: {'font-variant-numeric': 'tabular-nums'}),

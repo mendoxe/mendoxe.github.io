@@ -43,7 +43,7 @@ class SiteFooter extends StatelessComponent {
   @css
   static List<StyleRule> get styles => [
     css('.site-footer').styles(
-      padding: .only(top: .expression('clamp(64px, 9vw, 112px)'), bottom: 32.px),
+      padding: .only(top: .expression('clamp(48px, 7vw, 80px)'), bottom: 32.px),
       color: foreground,
       backgroundColor: deep,
     ),
@@ -54,20 +54,14 @@ class SiteFooter extends StatelessComponent {
     ),
     css('.footer-email').styles(
       display: .inlineBlock,
-      fontSize: .expression('clamp(28px, 6.4vw, 80px)'),
-      fontWeight: .w800,
-      lineHeight: 1.05.em,
-      raw: {
-        'letter-spacing': displayTracking,
-        'overflow-wrap': 'anywhere',
-        'text-decoration-thickness': '0.06em',
-        'text-underline-offset': '0.14em',
-      },
+      fontSize: .expression('clamp(20px, 2.4vw, 28px)'),
+      fontWeight: .w700,
+      raw: {'letter-spacing': '-0.015em', 'overflow-wrap': 'anywhere'},
     ),
     css('.footer-meta').styles(
       display: .flex,
-      margin: .only(top: .expression('clamp(56px, 8vw, 96px)')),
       padding: .only(top: 20.px),
+      margin: .only(top: .expression('clamp(40px, 6vw, 64px)')),
       border: .only(
         top: BorderSide(width: 1.px, color: hairline, style: .solid),
       ),

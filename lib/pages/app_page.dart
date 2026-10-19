@@ -159,8 +159,8 @@ class LegalPage extends StatelessComponent {
     css('.legal-back .app-icon').styles(width: 40.px, height: 40.px),
     css('.legal-notice').styles(
       maxWidth: 36.em,
-      margin: .only(bottom: 24.px),
       padding: .symmetric(vertical: 14.px, horizontal: 18.px),
+      margin: .only(bottom: 24.px),
       radius: .circular(10.px),
       fontSize: 16.px,
       backgroundColor: wash,
