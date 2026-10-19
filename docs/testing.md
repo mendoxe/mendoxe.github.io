@@ -11,19 +11,22 @@ dart run tool/site.dart preview
 
 `check` enforces formatting, runs the Dart/Jaspr analyzer, and runs unit tests. Base-path tests cover normalization and reject URL/query/traversal input. Tests focus on deployment behavior rather than snapshots of every static text component.
 
-Every build runs `verify_build.dart`: it requires all 13 route documents, one H1 and a main landmark per page, a page title, the expected base tag, resolvable local navigation/assets, and a valid PDF signature.
+Every build runs `verify_build.dart`: it requires all 21 route documents, one H1 and a main landmark per page, a page title, the expected base tag, resolvable local navigation/assets and cross-page fragments, and a valid PDF signature.
 
 For routing or hosting changes, repeat the build with `--base=/personal-site/`. Preview the new build and open nested URLs directly. The preview must return a real 404 status with the custom page for unknown paths.
 
 ## Browser review
 
-- Desktop: review home, CV, directory, one app, and both legal page types.
+- Desktop: review the complete home page (hero, apps, About, Services, footer), the standalone section routes, CV, directory, every app page, and both legal page types.
 - Mobile: review at 320–390 CSS pixels; no horizontal page scroll, clipped text, overlapping controls, or tiny navigation.
-- Hero devices: check desktop, both sides of the 850px stacking breakpoint, and 320–390px mobile widths. The laptop should read as the widest device, phone and tablet bottoms should align, and all three silhouettes and their screen content should remain separate and contained.
-- Keyboard: Tab shows a skip link and clear focus. Activate navigation and CV download.
-- Check selected navigation, page titles, deep links, back links, and footer.
-- Confirm font and PDF requests succeed; no third-party runtime requests or console errors.
-- Check Work, Services, and About anchor navigation from home and nested pages. On mobile, open the native Menu and follow a link. Check the tiny header avatar and About portrait with its grey frame.
+- Hero: the five icons sit beside "Simon" on desktop and wrap below the name under 720px. They pop in once on load; with reduced motion they appear at once.
+- App bands: check both sides of the 860px breakpoint. Desktop bands alternate sides; portrait screenshots rise from the band's bottom edge, the landscape one sits flush with it, and icon-only bands show one large icon (and no small one). On phones the bands stack and icon-only bands show only the small icon. Text stays readable on every band colour.
+- Keyboard: Tab shows a skip link above the sticky header, including after scrolling. Activating it moves focus to the main content. Focus is visible on links, icons and buttons on every band colour. Activate navigation and CV download.
+- Check selected navigation (`aria-current` on standalone routes), page titles, deep links, back links, and footer.
+- Confirm font, image and PDF requests succeed; no third-party runtime requests or console errors.
+- Follow Apps, About and Services repeatedly from home and nested pages; each section must begin beneath the sticky header. On mobile, open the menu, choose each link, verify the menu closes, and check Escape returns focus to its toggle. The native disclosure and section links must also remain usable without JavaScript.
+- Mobile menu: click outside, tab out, press Escape, and resize to desktop; the disclosure should close. On short screens its links must remain reachable by scrolling the menu.
+- App pages: open each directly. Screenshot galleries use the portrait or landscape grid without overflow at 320px, show accurate alt text, load lazily, and link to full-size images at root and repository-prefix bases.
 - Disable JavaScript: essential content, navigation, and PDF download still work.
 
 ## PDF

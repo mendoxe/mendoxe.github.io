@@ -1,10 +1,10 @@
 # Lukas Simon
 
-**Software developer · Dart & Flutter**
+**Engineering lead and app maker, Dart and Flutter**
 
 A personal website and a home for independent apps. Written in Dart with Jaspr, rendered ahead of time, and ready for GitHub Pages.
 
-Soft charcoal panels, blue accents, and locally hosted Manrope with italic serif details. A split hero, illustrated app cards, services, and an about section, built from reusable Dart components.
+Dark only: a deep ink-blue ground, locally hosted Schibsted Grotesk, and colour that comes only from the apps. The hero sets the name large with the five real app icons beside it; each app then gets a full-width band in its own colours with its real icon and screenshots.
 
 ![Personal website preview](docs/images/home.png)
 
@@ -15,9 +15,9 @@ Soft charcoal panels, blue accents, and locally hosted Manrope with italic serif
 | **Home** | Introduction, selected apps, services, background, and CV download |
 | **CV** | Professional profile and a downloadable A4 PDF |
 | **Apps** | A compact directory linking to each app's own space |
-| **Toolbox · Travelo · Code breaker** | Individual landing pages, privacy routes, and terms routes |
+| **Toolbox, Code breaker, Emberline, Quizness, Travelo** | Individual landing pages, privacy routes, and terms routes |
 
-Service and app positioning copy remains provisional. The CV includes confirmed ongoing CTU talks. Toolbox and Code breaker are released; Travelo is in active development and unreleased. Legal pages clearly identify their placeholders; no store listings or legal claims have been invented. [TODO.md](TODO.md) tracks the remaining launch work.
+Service and app positioning copy remains provisional. The CV includes confirmed ongoing CTU talks. Toolbox and Code breaker are released; Emberline, Quizness and Travelo are unreleased. Legal pages clearly identify their placeholders; no store listings or legal claims have been invented. [TODO.md](TODO.md) tracks the remaining launch work.
 
 ## Start locally
 

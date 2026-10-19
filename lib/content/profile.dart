@@ -26,7 +26,7 @@ class Profile {
   static const linkedin = 'https://www.linkedin.com/in/simon-lukas';
   static const experience = [
     Experience('Ventrata', 'Engineering Lead', 'Aug 2026 – present', ['Leading Flutter development.']),
-    Experience('Seznam.cz', 'Flutter Developer → Flutter Team Lead', 'Jun 2020 – Jul 2026', [
+    Experience('Seznam.cz', 'Flutter Team Lead', 'Jun 2020 – Jul 2026', [
       'Built multiple production and internal Flutter apps, progressing from proof of concept development to oversight of a division’s app portfolio.',
       'Developed CI/CD pipelines and led hiring, onboarding, management, and professional development.',
     ]),
@@ -35,9 +35,9 @@ class Profile {
     ]),
   ];
   static const education = [
-    'Master’s in Computer Science · CTU in Prague · 2021–2024',
-    'Erasmus+ semester · DTU, Lyngby · 2022–2023',
-    'Bachelor’s in Software Engineering · CTU in Prague · 2018–2021',
+    'Master’s in Computer Science, CTU in Prague, 2021–2024',
+    'Erasmus+ semester, DTU, Lyngby, 2022–2023',
+    'Bachelor’s in Software Engineering, CTU in Prague, 2018–2021',
   ];
 }
 

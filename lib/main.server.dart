@@ -15,11 +15,11 @@ void main() {
       base: siteBase,
       head: [
         meta(name: 'description', content: Profile.introduction),
-        meta(name: 'theme-color', content: '#101215'),
+        meta(name: 'theme-color', content: '#0f1526'),
         meta(name: 'color-scheme', content: 'dark'),
         link(href: siteUrl('favicon.svg'), rel: 'icon', type: 'image/svg+xml'),
         link(
-          href: siteUrl('fonts/Manrope.ttf'),
+          href: siteUrl('fonts/SchibstedGrotesk.ttf'),
           rel: 'preload',
           as: 'font',
           type: 'font/ttf',

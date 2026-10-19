@@ -1,17 +1,20 @@
 import 'package:jaspr/dom.dart';
 import 'package:jaspr/jaspr.dart';
 
-import '../components/ui.dart';
+import '../site_config.dart';
 
 class NotFoundPage extends StatelessComponent {
   const NotFoundPage({super.key});
   @override
-  Component build(BuildContext context) => section(classes: 'page-section', [
-    const PageIntro(
-      eyebrow: '404 / A WRONG TURN',
-      title: 'Nothing here. Yet.',
-      description: 'This page may have moved. Check the address or return to the homepage.',
-    ),
-    const ActionLink('Back to home', '', primary: true),
+  Component build(BuildContext context) => section(classes: 'wrap page-head not-found', [
+    h1([.text('Page not found')]),
+    p(classes: 'lead', [.text('The address may be mistyped, or the page has moved.')]),
+    a(href: siteUrl(''), classes: 'button', [.text('Go to the home page')]),
   ]);
+
+  @css
+  static List<StyleRule> get styles => [
+    css('.not-found').styles(minHeight: 60.vh),
+    css('.not-found .lead').styles(margin: .only(bottom: 32.px)),
+  ];
 }

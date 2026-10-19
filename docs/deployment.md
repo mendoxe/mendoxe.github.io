@@ -1,5 +1,11 @@
 # GitHub Pages
 
+## Current deployment
+
+The site is live at [https://mendoxe.github.io/](https://mendoxe.github.io/). Source is in the public [mendoxe/mendoxe.github.io repository](https://github.com/mendoxe/mendoxe.github.io), with `master` as its default branch. Pages uses GitHub Actions, and HTTPS is enforced.
+
+The [initial workflow deployment](https://github.com/mendoxe/mendoxe.github.io/actions/runs/36777802565) succeeded for commit `26cb67c`. On 30 September 2026, the live site passed checks for all 13 route pages, the updated GitHub/CV/app status content, PDF download, font/images/favicon, and a custom 404 with an actual 404 response. The desktop homepage also rendered correctly with no browser console errors.
+
 ## First publication
 
 1. Create a new **public** GitHub repository. For Lukas's personal site, the recommended name is **`mendoxe.github.io`**, giving `https://mendoxe.github.io/`. Create it empty: leave README, `.gitignore`, and license initialization off because this project already has its own files and has not chosen a source license.

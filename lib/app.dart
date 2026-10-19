@@ -7,6 +7,8 @@ import 'pages/app_page.dart';
 import 'pages/apps_page.dart';
 import 'pages/cv_page.dart';
 import 'pages/home.dart';
+import 'pages/services_page.dart';
+import 'pages/about_page.dart';
 import 'pages/not_found_page.dart';
 
 class App extends StatelessComponent {
@@ -14,13 +16,15 @@ class App extends StatelessComponent {
   @override
   Component build(BuildContext context) => Router(
     routes: [
-      _route('/', 'Lukas Simon — Software developer', 'Home', const HomePage()),
+      _route('/', 'Lukas Simon', '', const HomePage()),
       _route('/apps', 'Apps — Lukas Simon', 'Apps', const AppsPage()),
+      _route('/services', 'Services — Lukas Simon', 'Services', const ServicesPage()),
+      _route('/about', 'About — Lukas Simon', 'About', const AboutPage()),
       _route('/cv', 'CV — Lukas Simon', 'CV', const CvPage()),
       for (final app in personalApps) ...[
         _route('/apps/${app.slug}', '${app.name} — Lukas Simon', 'Apps', AppPage(app)),
-        _route('/apps/${app.slug}/privacy', 'Privacy — ${app.name}', 'Apps', LegalPage(app, isPrivacy: true)),
-        _route('/apps/${app.slug}/terms', 'Terms — ${app.name}', 'Apps', LegalPage(app, isPrivacy: false)),
+        _route('/apps/${app.slug}/privacy', 'Privacy policy — ${app.name}', 'Apps', LegalPage(app, isPrivacy: true)),
+        _route('/apps/${app.slug}/terms', 'Terms of use — ${app.name}', 'Apps', LegalPage(app, isPrivacy: false)),
       ],
       _route('/404', 'Page not found — Lukas Simon', '', const NotFoundPage()),
     ],

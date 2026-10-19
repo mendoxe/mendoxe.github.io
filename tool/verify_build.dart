@@ -9,6 +9,8 @@ Future<void> verifyBuild(String base) async {
   final expected = [
     'index.html',
     'cv/index.html',
+    'services/index.html',
+    'about/index.html',
     'apps/index.html',
     '404.html',
     for (final app in personalApps) ...[
@@ -18,6 +20,7 @@ Future<void> verifyBuild(String base) async {
     ],
   ];
   final failures = <String>[];
+  final fragmentIds = <String, Set<String>>{};
   for (final path in expected) {
     final file = File('${root.path}/$path');
     if (!file.existsSync()) {
@@ -25,6 +28,7 @@ Future<void> verifyBuild(String base) async {
       continue;
     }
     final document = parse(await file.readAsString());
+    fragmentIds[path] = document.querySelectorAll('[id]').map((element) => element.id).toSet();
     if (document.querySelectorAll('h1').length != 1) failures.add('$path needs one h1');
     if (document.querySelector('main') == null) failures.add('$path has no main landmark');
     if (document.querySelector('title')?.text.trim().isEmpty ?? true) failures.add('$path has no title');
@@ -45,7 +49,18 @@ Future<void> verifyBuild(String base) async {
       }
       var target = resolved.substring(base.length);
       if (target.isEmpty || target.endsWith('/')) target += 'index.html';
-      if (!File('${root.path}/$target').existsSync()) failures.add('$path: missing $value');
+      final targetFile = File('${root.path}/$target');
+      if (!targetFile.existsSync()) {
+        failures.add('$path: missing $value');
+        continue;
+      }
+      if (uri.hasFragment) {
+        final ids = fragmentIds.putIfAbsent(
+          target,
+          () => parse(targetFile.readAsStringSync()).querySelectorAll('[id]').map((element) => element.id).toSet(),
+        );
+        if (!ids.contains(uri.fragment)) failures.add('$path: missing fragment $value');
+      }
     }
   }
   final pdf = await File('${root.path}/downloads/lukas-simon-cv.pdf').readAsBytes();
